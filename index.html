@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sri Selvam Metals</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Noto+Sans+Tamil:wght@400;600&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--wine:#5B1A2A;--wine2:#44111e;--gold:#C9A24B;--green:#0F4D3A;--red:#B01E2E;--ivory:#FBF5E6;--ink:#2b1a14;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--wine);color:var(--ivory);font:15px/1.55 Poppins,"Noto Sans Tamil",sans-serif}
+h1,h2,h3{font-family:"Cormorant Garamond","Noto Sans Tamil",Georgia,serif;margin:0;font-weight:700}
+.wrap{max-width:1000px;margin:0 auto;padding:0 16px}
+.gold{color:var(--gold)}
+button,input,select,textarea{font:inherit}
+.btn{background:var(--gold);color:var(--wine2);border:0;border-radius:6px;padding:11px 20px;font-weight:500;cursor:pointer;text-decoration:none;display:inline-block}
+.btn.ghost{background:transparent;color:var(--gold);border:1px solid var(--gold)}
+.btn.red{background:var(--red);color:#fff}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.top{display:flex;justify-content:space-between;align-items:center;padding:10px 0;gap:8px}
+.lang{background:none;border:1px solid var(--gold);color:var(--gold);border-radius:20px;padding:4px 14px;cursor:pointer}
+.divider{height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:22px 0}
+/* hero */
+.hero{text-align:center;padding:10px 0 30px;background:radial-gradient(ellipse at 50% 28%,#7a2438 0,var(--wine) 60%)}
+.frame{width:min(260px,70vw);aspect-ratio:4/5;margin:14px auto 18px;border-radius:50%;padding:9px;background:linear-gradient(135deg,#f3dc9a,var(--gold) 45%,#8a6a22 70%,#e8c872);box-shadow:0 0 0 3px var(--wine),0 0 0 5px var(--gold),0 14px 40px #0008}
+.frame div{width:100%;height:100%;border-radius:50%;overflow:hidden;border:3px solid var(--wine2);position:relative}
+.frame img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;display:block}
+.frame div:after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 40px 10px #5B1A2Acc}
+.hero h1{font-size:clamp(34px,8vw,56px);color:var(--gold);letter-spacing:.5px;line-height:1.1}
+.tag{font-size:20px;margin:6px 0 2px;font-family:"Noto Sans Tamil",sans-serif}
+.founded{color:#e7d3a0;font-family:"Cormorant Garamond",serif;font-size:19px}
+.info{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin:24px 0}
+.info div{border:1px solid var(--gold);border-radius:8px;padding:14px;background:var(--wine2);text-align:left}
+.info b{color:var(--gold);display:block;font-family:"Cormorant Garamond",serif;font-size:19px}
+.info a{color:var(--ivory)}
+.shim{position:relative;overflow:hidden;font-size:17px;padding:14px 34px}
+.shim:after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,#fff7,transparent);animation:sh 3s ease-in-out infinite}
+@keyframes sh{0%,60%{left:-60%}100%{left:130%}}
+@media(prefers-reduced-motion:reduce){.shim:after{animation:none}}
+/* catalog */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);background:var(--wine2);z-index:5;padding:10px 0;border-bottom:1px solid var(--gold)}
+.bar .wrap{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.bar h2{color:var(--gold);font-size:24px;flex:1;cursor:pointer}
+input,select,textarea{background:var(--ivory);color:var(--ink);border:1px solid var(--gold);border-radius:6px;padding:9px 11px;width:100%}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:12px 0}
+.chip{background:var(--green);color:var(--ivory);border:1px solid var(--gold);border-radius:20px;padding:6px 14px;white-space:nowrap;cursor:pointer}
+.chip.on{background:var(--gold);color:var(--wine2);font-weight:500}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px;padding-bottom:40px}
+.card{background:var(--ivory);color:var(--ink);border-radius:8px;overflow:hidden;border:2px solid var(--gold);cursor:pointer;text-align:left;padding:0;position:relative}
+.card img,.ph{width:100%;aspect-ratio:1;object-fit:cover;display:block;background:var(--green)}
+.card .b{padding:10px 12px}
+.card h3{font-size:20px;line-height:1.2}
+.meta{font-size:13px;color:#6b5a4e}
+.price{color:var(--wine);font-weight:600;font-size:18px;margin-top:4px}
+.badge{position:absolute;top:8px;left:8px;background:var(--red);color:#fff;border-radius:4px;padding:2px 9px;font-size:12px}
+.badge.g{background:var(--green)}
+.empty{text-align:center;padding:50px 0;color:#e7d3a0;grid-column:1/-1}
+.modal{position:fixed;inset:0;background:#000b;z-index:20;display:none;align-items:center;justify-content:center;padding:14px}
+.modal.on{display:flex}
+.sheet{background:var(--ivory);color:var(--ink);border:3px solid var(--gold);border-radius:10px;max-width:560px;width:100%;max-height:92vh;overflow:auto;padding:16px;position:relative}
+.sheet .x{position:absolute;right:10px;top:6px;background:none;border:0;font-size:28px;color:var(--wine);cursor:pointer}
+.sheet h2{color:var(--wine);font-size:28px;padding-right:30px}
+.sheet table{width:100%;border-collapse:collapse;margin:10px 0}
+.sheet td{padding:6px 0;border-bottom:1px solid #e3d5ae}.sheet td:first-child{color:#7a6a5c;width:38%}
+.thumbs{display:flex;gap:6px;margin:8px 0}.thumbs img{width:56px;height:56px;object-fit:cover;border-radius:4px;border:2px solid var(--gold);cursor:pointer}
+footer{border-top:1px solid var(--gold);padding:18px 0 30px;text-align:center;font-size:13px;color:#e7d3a0}
+footer a{color:var(--gold)}
+/* admin */
+.panel{background:var(--ivory);color:var(--ink);border-radius:10px;border:2px solid var(--gold);padding:16px;margin:16px 0}
+.panel h2{color:var(--wine)}
+.f{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:10px 0}
+label{font-size:13px;color:#6b5a4e;display:block;margin-bottom:3px}
+.row{display:flex;gap:10px;align-items:center;border-bottom:1px solid #e3d5ae;padding:8px 0}
+.row img,.row .ph{width:52px;height:52px;border-radius:5px;flex:none}
+.row div{flex:1;min-width:0}
+.note{background:#fff3cf;color:#5a4300;border-radius:6px;padding:9px 12px;font-size:13px;margin:10px 0}
+</style></head><body>
+<div id="app"></div>
+<div class="modal" id="modal"><div class="sheet" id="sheet"></div></div>
+<script>
+const PORTRAIT="/portrait.jpg";
+const SHOP={phone1:"04367254765",phone1d:"04367 - 254765",phone2:"9262011162",phone2d:"92620 11162",map:"https://maps.app.goo.gl/rfFadgvKow2iiHHi9?g_st=aw"};
+const T={
+en:{tag:"கைராசியான பாத்திரக் கடை · Trusted Since 1983",founded:"Founded by A.A. Panner Selvam · Since 1983",addr:"Visit us",addrv:"No. 54, Periyakadai Street, Mannargudi, Thiruvarur District, Tamil Nadu - 614001",map:"Open in Google Maps",call:"Call us",hrs:"Opening hours",h1:"Mon to Sat: 9:30 AM to 9:00 PM",h2:"Sunday: 10:00 AM to 8:00 PM",view:"View catalog",search:"Search products",all:"All",none:"No products found. Try another category or search word.",mat:"Material",size:"Size / capacity",wt:"Weight",brand:"Brand",inst:"In stock",out:"Out of stock",nw:"New arrival",callp:"Call to order",admin:"Owner login",back:"Back to home",pw:"Password",login:"Log in",wrong:"Wrong password. Try again.",add:"Add product",edit:"Edit product",save:"Save product",del:"Delete",cancel:"Cancel",name:"Name (English)",nameta:"Name (Tamil)",cat:"Category",price:"Price (₹)",desc:"Description",stock:"Stock status",photos:"Photos (up to 4)",logout:"Log out",list:"All products",cats:"Categories",catadd:"Add category",setp:"Change password",reset:"Forgot password?",code:"Reset code",newpw:"New password",confirm:"Delete this product?",demo:"Demo mode: products you add here are saved in this browser only. When we connect the online database, they will appear for every customer.",saved:"Saved."},
+ta:{tag:"கைராசியான பாத்திரக் கடை · 1983 முதல் நம்பிக்கையுடன்",founded:"நிறுவனர் A.A. பண்ணர் செல்வம் · 1983 முதல்",addr:"எங்கள் முகவரி",addrv:"எண். 54, பெரியகடை தெரு, மன்னார்குடி, திருவாரூர் மாவட்டம், தமிழ்நாடு - 614001",map:"கூகுள் மேப்பில் பார்க்க",call:"அழைக்க",hrs:"கடை நேரம்",h1:"திங்கள் முதல் சனி: காலை 9:30 முதல் இரவு 9:00 வரை",h2:"ஞாயிறு: காலை 10:00 முதல் இரவு 8:00 வரை",view:"பொருட்களைப் பார்க்க",search:"பொருளைத் தேடுக",all:"அனைத்தும்",none:"பொருட்கள் இல்லை. வேறு பிரிவு அல்லது சொல்லை முயற்சிக்கவும்.",mat:"உலோகம்",size:"அளவு / கொள்ளளவு",wt:"எடை",brand:"நிறுவனம்",inst:"கையிருப்பு உள்ளது",out:"கையிருப்பு இல்லை",nw:"புதிய வரவு",callp:"ஆர்டர் செய்ய அழைக்கவும்",admin:"உரிமையாளர் உள்நுழைவு",back:"முகப்புக்குத் திரும்ப",pw:"கடவுச்சொல்",login:"உள்நுழை",wrong:"கடவுச்சொல் தவறு. மீண்டும் முயற்சிக்கவும்.",add:"பொருள் சேர்க்க",edit:"பொருளைத் திருத்த",save:"சேமி",del:"நீக்கு",cancel:"ரத்து",name:"பெயர் (ஆங்கிலம்)",nameta:"பெயர் (தமிழ்)",cat:"பிரிவு",price:"விலை (₹)",desc:"விவரம்",stock:"கையிருப்பு நிலை",photos:"படங்கள் (4 வரை)",logout:"வெளியேறு",list:"அனைத்துப் பொருட்கள்",cats:"பிரிவுகள்",catadd:"பிரிவு சேர்க்க",setp:"கடவுச்சொல் மாற்ற",reset:"கடவுச்சொல் மறந்துவிட்டதா?",code:"மீட்புக் குறியீடு",newpw:"புதிய கடவுச்சொல்",confirm:"இந்தப் பொருளை நீக்கவா?",demo:"டெமோ: இங்கு சேர்க்கும் பொருட்கள் இந்த உலாவியில் மட்டுமே சேமிக்கப்படும். ஆன்லைன் தரவுத்தளம் இணைத்த பின் அனைத்து வாடிக்கையாளர்களுக்கும் தெரியும்.",saved:"சேமிக்கப்பட்டது."}};
+const CATS0=[["Stainless steel vessels & pans","துருப்பிடிக்காத எஃகு பாத்திரங்கள்"],["Aluminium kitchenware","அலுமினிய சமையல் பாத்திரங்கள்"],["Metal cookware","உலோக சமையல் கலன்கள்"],["Brass, copper & bronze","பித்தளை, செம்பு, வெண்கலம்"],["Pooja items & lamps","பூஜைப் பொருட்கள், விளக்குகள்"],["Dinner sets, plates & tumblers","தட்டு, டம்ளர், சாப்பாட்டு செட்"],["Gift & wedding sets","பரிசு, திருமணச் சீர் செட்"],["Other household metal goods","பிற வீட்டு உலோகப் பொருட்கள்"]].map((c,i)=>({id:"c"+i,en:c[0],ta:c[1]}));
+const P0=[
+["Stainless Steel Kadai","துருப்பிடிக்காத எஃகு கடாய்","c0","Stainless steel","3 litre","1.1 kg","Demo brand",1450,"new","Heavy-base kadai for everyday cooking."],
+["Idli Pot, 4 Plates","இட்லி பானை, 4 தட்டு","c2","Aluminium","16 inch","1.4 kg","Demo brand",1250,"in","Four-plate idli cooker with lid."],
+["Pressure Cooker","பிரஷர் குக்கர்","c2","Aluminium","5 litre","1.9 kg","Demo brand",1850,"in","Inner-lid cooker with safety valve."],
+["Brass Kuthuvilakku","பித்தளை குத்துவிளக்கு","c4","Brass","18 inch","1.6 kg","Demo brand",3200,"in","Traditional pooja lamp with five faces."],
+["Copper Water Pot","செம்பு தண்ணீர் பானை","c3","Copper","4 litre","1.2 kg","Demo brand",2400,"in","Pure copper pot for drinking water."],
+["Wedding Gift Set, 21 pcs","சீர் வரிசை செட், 21 பொருட்கள்","c6","Stainless steel","Set of 21","6 kg","Demo brand",9800,"out","Complete vessel set for gifting."]
+].map((p,i)=>({id:"p"+i,en:p[0],ta:p[1],cat:p[2],mat:p[3],size:p[4],wt:p[5],brand:p[6],price:p[7],stock:p[8],desc:p[9],imgs:[]}));
+const $=s=>document.querySelector(s);
+const st={lang:"en",view:"home",cat:"all",q:"",admin:false,edit:null,loginErr:false};
+const lsGet=(k,d)=>{try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}};
+const lsSet=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v));return true}catch(e){alert("Storage full. Remove some photos.");return false}};
+let cats=CATS0,prods=P0,token="";
+const J={"Content-Type":"application/json"};
+async function persist(nc,np){try{const r=await fetch("/api/data",{method:"POST",headers:{...J,"x-token":token},body:JSON.stringify({cats:nc,prods:np})});if(!r.ok)throw 0;const d=await r.json();cats=d.cats;prods=d.prods;return true}catch(e){alert("Could not save. Please log in again.");st.admin=false;render();return false}}
+const t=k=>T[st.lang][k];
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const nm=o=>st.lang==="ta"&&o.ta?o.ta:o.en;
+const ph=()=>`<svg class="ph" viewBox="0 0 100 100"><rect width="100" height="100" fill="#0F4D3A"/><path d="M24 44h52l-5 30a8 8 0 0 1-8 7H37a8 8 0 0 1-8-7z" fill="#C9A24B"/><rect x="20" y="38" width="60" height="7" rx="3" fill="#e8c872"/><path d="M34 36q16-14 32 0" fill="none" stroke="#C9A24B" stroke-width="4"/></svg>`;
+const img=p=>p.imgs&&p.imgs[0]?`<img src="${p.imgs[0]}" alt="${esc(p.en)}" loading="lazy">`:ph();
+const stockB=p=>p.stock==="out"?`<span class="badge">${t("out")}</span>`:p.stock==="new"?`<span class="badge g">${t("nw")}</span>`:"";
+const money=n=>"₹"+Number(n).toLocaleString("en-IN");
+function go(v){st.view=v;render();scrollTo(0,0)}
+function topbar(){return `<div class="top"><span class="gold" style="font-family:'Cormorant Garamond',serif;font-size:20px">Sri Selvam Metals</span><button class="lang" onclick="st.lang=st.lang==='en'?'ta':'en';render()">${st.lang==='en'?'தமிழ்':'English'}</button></div>`}
+function home(){return `<div class="hero"><div class="wrap">${topbar()}
+<div class="frame"><div><img src="${PORTRAIT}" alt="A.A. Panner Selvam"></div></div>
+<h1>Sri Selvam Metals</h1><div class="tag gold">${t("tag")}</div><div class="founded">${t("founded")}</div>
+<div class="divider"></div>
+<p style="margin:0 0 18px"><button class="btn shim" onclick="go('catalog')">${t("view")}</button></p>
+<div class="info"><div><b>${t("addr")}</b>${t("addrv")}<br><a href="${SHOP.map}" target="_blank" rel="noopener" class="gold">${t("map")}</a></div>
+<div><b>${t("call")}</b><a href="tel:${SHOP.phone1}">${SHOP.phone1d}</a><br><a href="tel:${SHOP.phone2}">${SHOP.phone2d}</a><br><a class="btn" style="margin-top:8px;padding:8px 16px" href="tel:${SHOP.phone2}">${t("call")} ${SHOP.phone2d}</a></div>
+<div><b>${t("hrs")}</b>${t("h1")}<br>${t("h2")}</div></div></div></div>
+<footer><a href="#" onclick="go('admin');return false">${t("admin")}</a></footer>`}
+function catalog(){
+const q=st.q.toLowerCase();
+const list=prods.filter(p=>(st.cat==="all"||p.cat===st.cat)&&(!q||(p.en+" "+(p.ta||"")+" "+p.mat+" "+p.brand).toLowerCase().includes(q)));
+return `<div class="bar"><div class="wrap"><h2 onclick="go('home')">Sri Selvam Metals</h2><button class="lang" onclick="st.lang=st.lang==='en'?'ta':'en';render()">${st.lang==='en'?'தமிழ்':'English'}</button><input id="q" style="flex-basis:100%" placeholder="${t("search")}" value="${esc(st.q)}" oninput="st.q=this.value;grid()"></div></div>
+<div class="wrap"><div class="chips"><button class="chip ${st.cat==='all'?'on':''}" onclick="st.cat='all';render()">${t("all")}</button>${cats.map(c=>`<button class="chip ${st.cat===c.id?'on':''}" onclick="st.cat='${c.id}';render()">${esc(nm(c))}</button>`).join("")}</div>
+<div class="grid" id="grid">${cards(list)}</div></div>
+<footer><a href="#" onclick="go('home');return false">${t("back")}</a> · ${SHOP.phone2d}</footer>`}
+function cards(l){return l.length?l.map(p=>`<button class="card" onclick="detail('${p.id}')">${stockB(p)}${img(p)}<div class="b"><h3>${esc(nm(p))}</h3><div class="meta">${esc(p.mat)} · ${esc(p.size)}</div><div class="price">${p.price?money(p.price):t("callp")}</div></div></button>`).join(""):`<div class="empty">${t("none")}</div>`}
+function grid(){const q=st.q.toLowerCase();$("#grid").innerHTML=cards(prods.filter(p=>(st.cat==="all"||p.cat===st.cat)&&(!q||(p.en+" "+(p.ta||"")+" "+p.mat+" "+p.brand).toLowerCase().includes(q))))}
+function detail(id){const p=prods.find(x=>x.id===id),c=cats.find(x=>x.id===p.cat);
+const stl=p.stock==="out"?t("out"):p.stock==="new"?t("nw"):t("inst");
+$("#sheet").innerHTML=`<button class="x" onclick="closeM()" aria-label="Close">×</button><h2>${esc(nm(p))}</h2><div class="meta">${esc(st.lang==="ta"?p.en:p.ta||"")}</div>
+<div id="big">${p.imgs[0]?`<img src="${p.imgs[0]}" style="width:100%;border-radius:6px;margin-top:8px" alt="">`:ph()}</div>
+${p.imgs.length>1?`<div class="thumbs">${p.imgs.map(s=>`<img src="${s}" alt="" onclick="document.querySelector('#big img').src=this.src">`).join("")}</div>`:""}
+<div class="price" style="font-size:26px">${p.price?money(p.price):t("callp")}</div>
+<table><tr><td>${t("cat")}</td><td>${c?esc(nm(c)):""}</td></tr><tr><td>${t("mat")}</td><td>${esc(p.mat)}</td></tr><tr><td>${t("size")}</td><td>${esc(p.size)}</td></tr><tr><td>${t("wt")}</td><td>${esc(p.wt)}</td></tr><tr><td>${t("brand")}</td><td>${esc(p.brand)}</td></tr><tr><td>${t("stock")}</td><td>${stl}</td></tr></table>
+<p>${esc(p.desc)}</p><a class="btn red" href="tel:${SHOP.phone2}" style="width:100%;text-align:center">${t("call")} ${SHOP.phone2d}</a>`;
+$("#modal").classList.add("on")}
+function closeM(){$("#modal").classList.remove("on")}
+$("#modal").onclick=e=>{if(e.target.id==="modal")closeM()};
+/* admin */
+function admin(){
+if(!st.admin)return `<div class="wrap">${topbar()}<div class="panel" style="max-width:380px;margin:40px auto"><h2>${t("admin")}</h2><label>${t("pw")}</label><input type="password" id="pw" onkeydown="if(event.key==='Enter')login()"><p>${st.loginErr?`<span style="color:var(--red)">${t("wrong")}</span>`:""}</p><button class="btn" onclick="login()">${t("login")}</button> <button class="btn ghost" style="color:var(--wine);border-color:var(--wine)" onclick="go('home')">${t("back")}</button>
+<p style="margin-top:16px"><a href="#" style="color:var(--wine)" onclick="resetPw();return false">${t("reset")}</a></p></div></div>`;
+const e=st.edit,p=e&&e!=="new"?prods.find(x=>x.id===e):null;
+const o=(v,l,s)=>`<option value="${v}" ${s?"selected":""}>${esc(l)}</option>`;
+return `<div class="wrap">${topbar()}<div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn" onclick="st.edit='new';render()">+ ${t("add")}</button><button class="btn ghost" onclick="go('catalog')">${t("view")}</button><button class="btn ghost" onclick="st.admin=false;go('home')">${t("logout")}</button></div>
+${e?form(p):""}
+<div class="panel"><h2>${t("list")} (${prods.length})</h2>${prods.map(x=>`<div class="row">${x.imgs[0]?`<img src="${x.imgs[0]}" alt="">`:ph()}<div><b>${esc(x.en)}</b><div class="meta">${esc(x.ta||"")} · ${x.price?money(x.price):"-"}</div></div><button class="btn ghost" style="color:var(--wine);border-color:var(--wine);padding:6px 12px" onclick="st.edit='${x.id}';render();scrollTo(0,0)">${t("edit")}</button><button class="btn red" style="padding:6px 12px" onclick="delP('${x.id}')">${t("del")}</button></div>`).join("")}</div>
+<div class="panel"><h2>${t("cats")}</h2><div style="display:flex;flex-wrap:wrap;gap:6px;margin:8px 0">${cats.map(c=>`<span class="chip">${esc(c.en)} <b onclick="delC('${c.id}')" style="cursor:pointer;margin-left:6px">×</b></span>`).join("")}</div><div class="f"><input id="ce" placeholder="English"><input id="ct" placeholder="தமிழ்"></div><button class="btn" onclick="addC()">${t("catadd")}</button></div>
+<div class="panel"><h2>${t("setp")}</h2><div class="f"><input type="password" id="np" placeholder="${t("newpw")}"></div><button class="btn" onclick="setPw()">${t("save")}</button></div></div>`}
+function form(p){p=p||{imgs:[],stock:"in"};window._imgs=[...(p.imgs||[])];
+return `<div class="panel"><h2>${p.id?t("edit"):t("add")}</h2><div class="f">
+<div><label>${t("name")}</label><input id="f_en" value="${esc(p.en)}"></div><div><label>${t("nameta")}</label><input id="f_ta" value="${esc(p.ta)}"></div>
+<div><label>${t("cat")}</label><select id="f_cat">${cats.map(c=>`<option value="${c.id}" ${p.cat===c.id?"selected":""}>${esc(c.en)}</option>`).join("")}</select></div>
+<div><label>${t("mat")}</label><input id="f_mat" value="${esc(p.mat)}"></div><div><label>${t("size")}</label><input id="f_size" value="${esc(p.size)}"></div><div><label>${t("wt")}</label><input id="f_wt" value="${esc(p.wt)}"></div>
+<div><label>${t("brand")}</label><input id="f_brand" value="${esc(p.brand)}"></div><div><label>${t("price")}</label><input id="f_price" type="number" min="0" value="${esc(p.price)}"></div>
+<div><label>${t("stock")}</label><select id="f_stock"><option value="in" ${p.stock==="in"?"selected":""}>${t("inst")}</option><option value="out" ${p.stock==="out"?"selected":""}>${t("out")}</option><option value="new" ${p.stock==="new"?"selected":""}>${t("nw")}</option></select></div></div>
+<label>${t("desc")}</label><textarea id="f_desc" rows="3">${esc(p.desc)}</textarea>
+<label style="margin-top:10px">${t("photos")}</label><input type="file" id="f_img" accept="image/*" multiple onchange="pick(this)"><div class="thumbs" id="prev">${(p.imgs||[]).map(s=>`<img src="${s}" alt="">`).join("")}</div>
+<button class="btn" onclick="saveP('${p.id||""}')">${t("save")}</button> <button class="btn ghost" style="color:var(--wine);border-color:var(--wine)" onclick="st.edit=null;render()">${t("cancel")}</button></div>`}
+function pick(inp){window._imgs=[];$("#prev").innerHTML="";[...inp.files].slice(0,4).forEach(f=>{const r=new FileReader();r.onload=()=>{const i=new Image();i.onload=()=>{const s=Math.min(1,640/Math.max(i.width,i.height)),c=document.createElement("canvas");c.width=i.width*s;c.height=i.height*s;c.getContext("2d").drawImage(i,0,0,c.width,c.height);const u=c.toDataURL("image/jpeg",.72);window._imgs.push(u);$("#prev").insertAdjacentHTML("beforeend",`<img src="${u}" alt="">`)};i.src=r.result};r.readAsDataURL(f)})}
+function saveP(id){const g=k=>$("#f_"+k).value.trim();if(!g("en")){alert(t("name"));return}
+const o={id:id||"p"+Date.now(),en:g("en"),ta:g("ta"),cat:g("cat"),mat:g("mat"),size:g("size"),wt:g("wt"),brand:g("brand"),price:g("price"),stock:g("stock"),desc:g("desc"),imgs:window._imgs};
+const nx=id?prods.map(x=>x.id===id?o:x):[o,...prods];persist(cats,nx).then(ok=>{if(ok){st.edit=null;render()}})}
+function delP(id){if(!confirm(t("confirm")))return;persist(cats,prods.filter(x=>x.id!==id)).then(()=>render())}
+function addC(){const e=$("#ce").value.trim();if(!e)return;persist([...cats,{id:"c"+Date.now(),en:e,ta:$("#ct").value.trim()}],prods).then(()=>render())}
+function delC(id){if(prods.some(p=>p.cat===id)){alert("Move or delete the products in this category first.");return}persist(cats.filter(c=>c.id!==id),prods).then(()=>render())}
+function login(){fetch("/api/login",{method:"POST",headers:J,body:JSON.stringify({password:$("#pw").value})}).then(r=>r.ok?r.json():Promise.reject()).then(d=>{token=d.token;st.admin=true;st.loginErr=false;render()}).catch(()=>{st.loginErr=true;render()})}
+function setPw(){const v=$("#np").value;if(v.length<6){alert("Use at least 6 characters.");return}fetch("/api/password",{method:"POST",headers:{...J,"x-token":token},body:JSON.stringify({password:v})}).then(r=>alert(r.ok?t("saved"):"Error"))}
+function resetPw(){const c=prompt(t("code"));if(c===null)return;const v=prompt(t("newpw"));if(!v||v.length<6){alert("Use at least 6 characters.");return}fetch("/api/reset",{method:"POST",headers:J,body:JSON.stringify({code:c.trim(),password:v})}).then(r=>alert(r.ok?t("saved"):t("wrong")))}
+function render(){document.documentElement.lang=st.lang==="ta"?"ta":"en";$("#app").innerHTML=st.view==="home"?home():st.view==="catalog"?catalog():admin();closeM()}
+fetch("/api/data").then(r=>r.json()).then(d=>{if(d&&Array.isArray(d.prods)){cats=d.cats&&d.cats.length?d.cats:CATS0;prods=d.prods}}).catch(()=>{}).finally(()=>{if(location.pathname==="/admin")st.view="admin";render()});
+</script></body></html>
