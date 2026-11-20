@@ -1,0 +1,12 @@
+{
+  "name": "sri-selvam-metals-catalog",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sri Selvam Metals digital product catalog",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
